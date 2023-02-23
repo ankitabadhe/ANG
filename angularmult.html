@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>AngularJS Simple Multiplication Tables</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("tablesApp", []);
+        app.controller("appController", function ($scope) {
+            $scope.count = 10;
+            $scope.num = 5
+            $scope.eval = function (count, num) {
+                $scope.arr = [];
+                for (var i = 1; i <= count; i++) {
+                    $scope.arr.push(num * i);
+                }
+                return $scope.arr;
+            };
+            $scope.Counter = function (n, num) {
+                  return n / num;
+            };
+        }
+        );
+    </script>
+</head>
+<body ng-app="tablesApp">
+    <div ng-controller="appController" ng-clear>
+        Number : <input id="Text2" type="number" min="1" ng-model="num" /><br /><br />
+        Count : <input id="Text1" type="number" min="0" ng-model="count" /><br /><br />
+        <div ng-repeat="n in eval(count,num) track by $index">
+            {{num}}*{{Counter(n,num)}}={{n}} 
+        </div>
+    </div>   
+</body>
+</html>

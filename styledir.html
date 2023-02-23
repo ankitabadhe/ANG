@@ -1,0 +1,20 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js">
+</script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl"> 
+<h3 ng-style="myObj">Name : Ankita</h3> 
+<h3 ng-style="myObj">Address : Mumbai</h3> 
+<h3 ng-style="myObj">Age : 21</h3>
+<script>
+var app = angular.module("myApp", []); app.controller("myCtrl", function ($scope) {
+$scope.myObj = { "color": "#211565",
+"background-color": "#f4edf1", "font-size": "20px",
+"margin-bottom": "10px"
+}
+}); 
+</script>
+</body> 
+</html> 

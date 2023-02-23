@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Simple Interest Calculator</title>
+</head>
+<body>
+<form ng-app="myApp">
+	<div  ng-controller="interestCalculator">
+		<label for="principal">Loan Amount:</label>
+		<input type="text"  id="principal" ng-model="principal"/><br><br>
+		<label for="rate">Annual Percentage Rate:</label>
+		<input type="text"  id="rate" ng-model="rate" /><br><br>
+		<label for="time">Length of Loan in Years:</label>
+		<input type="text"  id="time" ng-model="time" />
+		<br>
+		<p>Total Amount You Will Pay: <strong>Rs.{{total() }}</strong></p>
+      <p >Total Interest Alone You Will Pay: <strong>Rs.{{interest()}}</strong></p>
+	</div>
+</form>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>(function(){
+	var app = angular.module('myApp',[]);
+	app.controller('interestCalculator', function($scope){
+		$scope.principal = 0;
+    $scope.rate = 0;
+    $scope.time = 0;
+    var grandTotal = 0;
+    $scope.total = function(){
+      grandTotal = $scope.principal * (1 + ($scope.rate / 100) * $scope.time);
+      return grandTotal;
+    }
+    $scope.interest = function(){
+      var interestOnly = grandTotal - $scope.principal;
+      return interestOnly;
+    };
+	});
+})();
+</script>
+
+</body>
+</html>

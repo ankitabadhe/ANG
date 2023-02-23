@@ -1,0 +1,18 @@
+<!DOCTYPE html> 
+<head> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js">
+</script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="namesCtrl" class="py-3"> 
+<ul>
+<p class="fw-bold mb-2">Name in UpperCase</p>
+<li ng-repeat="x in employee"> {{x.name|uppercase}}<br> </li> 
+</ul>
+</div> <script>
+angular.module('myApp', []).controller('namesCtrl', function ($scope) { $scope.employee = [
+{ "id": 1, "name": "Ankita", "salary": 10000, "doj": "9/2/20" }, { "id": 2, "name": "Ashish", "salary": 15000, "doj": "9/7/20" }, { "id": 3, "name": "Vicky", "salary": 9000, "doj": "8/2/20" },
+{ "id": 4, "name": "Shivani", "salary": 40000, "doj": "3/1/20" }]; });
+</script> 
+</body> 
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html> <html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js">
+</script>
+</head> 
+<body>
+<h2>Attach functions or behavior - AngularJS</h2> <div ng-app="myApp" ng-controller="myCtrl">
+First Name: <input type="text" ng-model="firstName"><br><br> Last Name: <input type="text" ng-model="lastName"><br> <br>
+<b>Full Name:</b> {{ firstName + " " + lastName}}<br><br> Square of 6 is {{ Square() }}
+</div> 
+<script>
+var app = angular.module('myApp', []); app.controller('myCtrl', function ($scope) {
+$scope.firstName = ""; $scope.lastName = "";
+});
+var app = angular.module('myApp', []); app.controller('myCtrl', ['$scope', function ($scope) {
+$scope.Square = function (val) { return 6 * 6;
+}; }]);
+</script> 
+</body> 
+</html>
